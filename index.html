@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SkillBridge AI – AI Career Mentor for Underserved Students</title>
+  <meta name="description" content="Free AI-powered career mentorship for students from rural areas, tier-2/3 cities, and underserved backgrounds." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       LANDING PAGE (shown before app)
+  ═══════════════════════════════════════════ -->
+  <div id="landing-page" class="landing-page">
+
+    <!-- Nav -->
+    <nav class="landing-nav">
+      <div class="nav-brand">
+        <span class="brand-icon">⬡</span>
+        <span class="brand-name">SkillBridge <em>AI</em></span>
+      </div>
+      <div class="nav-links">
+        <a href="#features-section">Features</a>
+        <a href="#impact-section">Impact</a>
+        <button class="btn-nav-cta" onclick="enterApp()">Start Free →</button>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-bg-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+      </div>
+
+      <div class="hero-bridge">
+        <svg viewBox="0 0 900 200" xmlns="http://www.w3.org/2000/svg" class="bridge-svg">
+          <defs>
+            <linearGradient id="bridgeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" style="stop-color:#4F46E5;stop-opacity:0.8"/>
+              <stop offset="50%" style="stop-color:#06B6D4;stop-opacity:1"/>
+              <stop offset="100%" style="stop-color:#F59E0B;stop-opacity:0.8"/>
+            </linearGradient>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+              <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+          <!-- Bridge arch -->
+          <path d="M 50 170 Q 450 20 850 170" stroke="url(#bridgeGrad)" stroke-width="3" fill="none" filter="url(#glow)" opacity="0.9"/>
+          <path d="M 50 170 Q 450 40 850 170" stroke="url(#bridgeGrad)" stroke-width="1.5" fill="none" opacity="0.4"/>
+          <!-- Bridge pillars -->
+          <line x1="50" y1="170" x2="50" y2="195" stroke="#4F46E5" stroke-width="3" opacity="0.7"/>
+          <line x1="850" y1="170" x2="850" y2="195" stroke="#F59E0B" stroke-width="3" opacity="0.7"/>
+          <!-- Moving dot on arch -->
+          <circle class="bridge-dot" r="6" fill="#06B6D4" filter="url(#glow)">
+            <animateMotion dur="4s" repeatCount="indefinite" path="M 50 170 Q 450 20 850 170"/>
+          </circle>
+          <!-- Labels -->
+          <text x="50" y="215" fill="#818CF8" font-size="13" font-family="Inter" text-anchor="middle" opacity="0.8">Where you are</text>
+          <text x="850" y="215" fill="#F59E0B" font-size="13" font-family="Inter" text-anchor="middle" opacity="0.8">Where you'll be</text>
+        </svg>
+      </div>
+
+      <div class="hero-content">
+        <div class="hero-badge">🇮🇳 Free for every Indian student</div>
+        <h1 class="hero-headline">
+          Your career mentor<br/>
+          <span class="headline-highlight">was always here.</span>
+        </h1>
+        <p class="hero-sub">AI-powered career guidance built for students from rural areas, tier-2/3 cities, and underserved backgrounds — no fees, no gatekeeping, no prerequisites.</p>
+        <div class="hero-actions">
+          <button class="btn-primary" onclick="enterApp()">Start Your Journey — Free</button>
+          <button class="btn-ghost" onclick="enterApp(); switchTab('roadmap')">View Sample Roadmap</button>
+        </div>
+        <div class="hero-langs">
+          <span>Available in</span>
+          <span class="lang-tag">English</span>
+          <span class="lang-tag">हिन्दी</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats-section" id="impact-section">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-num">65%</div>
+          <div class="stat-label">of rural students lack access to a career mentor</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">8</div>
+          <div class="stat-label">AI-powered tools in one platform</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">30/90/365</div>
+          <div class="stat-label">day roadmaps tailored to your goal</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-num">0₹</div>
+          <div class="stat-label">cost — always free for students</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="features-section" id="features-section">
+      <div class="section-eyebrow">What's inside</div>
+      <h2 class="section-title">Everything your school never taught you</h2>
+      <div class="features-grid">
+        <div class="feature-card" onclick="enterApp(); switchTab('career')">
+          <div class="feature-icon">🧭</div>
+          <h3>Career Counselor</h3>
+          <p>Personalized career paths based on your interests, skills, and education level.</p>
+        </div>
+        <div class="feature-card" onclick="enterApp(); switchTab('skills')">
+          <div class="feature-icon">📊</div>
+          <h3>Skill Gap Analyzer</h3>
+          <p>See exactly which skills you're missing and what priority to fill them in.</p>
+        </div>
+        <div class="feature-card" onclick="enterApp(); switchTab('roadmap')">
+          <div class="feature-icon">🗺️</div>
+          <h3>Learning Roadmap</h3>
+          <p>Structured 30-day, 90-day, and 1-year plans you can actually follow.</p>
+        </div>
+        <div class="feature-card" onclick="enterApp(); switchTab('projects')">
+          <div class="feature-icon">💡</div>
+          <h3>Project Recommender</h3>
+          <p>Build a portfolio with projects suited to your current skill level.</p>
+        </div>
+        <div class="feature-card" onclick="enterApp(); switchTab('resume')">
+          <div class="feature-icon">📄</div>
+          <h3>Resume Reviewer</h3>
+          <p>Instant feedback on your resume — strengths, gaps, and rewrites.</p>
+        </div>
+        <div class="feature-card" onclick="enterApp(); switchTab('interview')">
+          <div class="feature-icon">🎤</div>
+          <h3>Interview Coach</h3>
+          <p>Practice questions and model answers tailored to your target role.</p>
+        </div>
+        <div class="feature-card" onclick="enterApp(); switchTab('scholarships')">
+          <div class="feature-icon">🎓</div>
+          <h3>Scholarship Finder</h3>
+          <p>Discover government and private scholarships you're eligible for right now.</p>
+        </div>
+        <div class="feature-card" onclick="enterApp(); switchTab('dashboard')">
+          <div class="feature-icon">📈</div>
+          <h3>Progress Dashboard</h3>
+          <p>Track every skill completed and see your roadmap progress grow.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="landing-footer">
+      <div class="footer-brand">⬡ SkillBridge AI</div>
+      <div class="footer-note">Built to democratize career mentorship across India. Free, forever.</div>
+    </footer>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════════
+       APP (shown after entering)
+  ═══════════════════════════════════════════ -->
+  <div id="app" class="app hidden">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <span class="brand-icon">⬡</span>
+        <span class="brand-name">SkillBridge <em>AI</em></span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section-label">Guidance</div>
+        <button class="nav-item active" data-tab="career" onclick="switchTab('career')">
+          <span class="nav-icon">🧭</span><span>Career Counselor</span>
+        </button>
+        <button class="nav-item" data-tab="skills" onclick="switchTab('skills')">
+          <span class="nav-icon">📊</span><span>Skill Gap Analyzer</span>
+        </button>
+        <button class="nav-item" data-tab="roadmap" onclick="switchTab('roadmap')">
+          <span class="nav-icon">🗺️</span><span>Learning Roadmap</span>
+        </button>
+        <button class="nav-item" data-tab="projects" onclick="switchTab('projects')">
+          <span class="nav-icon">💡</span><span>Project Recommender</span>
+        </button>
+
+        <div class="nav-section-label">Preparation</div>
+        <button class="nav-item" data-tab="resume" onclick="switchTab('resume')">
+          <span class="nav-icon">📄</span><span>Resume Reviewer</span>
+        </button>
+        <button class="nav-item" data-tab="interview" onclick="switchTab('interview')">
+          <span class="nav-icon">🎤</span><span>Interview Coach</span>
+        </button>
+        <button class="nav-item" data-tab="scholarships" onclick="switchTab('scholarships')">
+          <span class="nav-icon">🎓</span><span>Scholarship Finder</span>
+        </button>
+
+        <div class="nav-section-label">My Progress</div>
+        <button class="nav-item" data-tab="dashboard" onclick="switchTab('dashboard')">
+          <span class="nav-icon">📈</span><span>Dashboard</span>
+        </button>
+        <button class="nav-item" data-tab="history" onclick="switchTab('history')">
+          <span class="nav-icon">🕐</span><span>Search History</span>
+        </button>
+      </nav>
+
+      <!-- Settings at bottom -->
+      <div class="sidebar-footer">
+        <div class="setting-row">
+          <label class="setting-label">🌐 Language</label>
+          <select id="langSelect" onchange="setLanguage(this.value)">
+            <option value="en">English</option>
+            <option value="hi">हिन्दी</option>
+          </select>
+        </div>
+        <div class="setting-row">
+          <label class="setting-label">📶 Rural Mode</label>
+          <label class="toggle">
+            <input type="checkbox" id="ruralMode" onchange="toggleRuralMode(this.checked)" />
+            <span class="toggle-slider"></span>
+          </label>
+        </div>
+        <button class="btn-back-home" onclick="exitApp()">← Back to Home</button>
+      </div>
+    </aside>
+
+    <!-- Mobile tab bar -->
+    <div class="mobile-tabs">
+      <button class="mob-tab active" data-tab="career" onclick="switchTab('career')">🧭<br/><small>Career</small></button>
+      <button class="mob-tab" data-tab="skills" onclick="switchTab('skills')">📊<br/><small>Skills</small></button>
+      <button class="mob-tab" data-tab="roadmap" onclick="switchTab('roadmap')">🗺️<br/><small>Roadmap</small></button>
+      <button class="mob-tab" data-tab="resume" onclick="switchTab('resume')">📄<br/><small>Resume</small></button>
+      <button class="mob-tab" data-tab="dashboard" onclick="switchTab('dashboard')">📈<br/><small>Progress</small></button>
+      <button class="mob-tab" data-tab="history" onclick="switchTab('history')">🕐<br/><small>History</small></button>
+    </div>
+
+    <!-- Main content -->
+    <main class="main-content">
+
+      <!-- ─── TAB: Career Counselor ─── -->
+      <section class="tab-panel active" id="tab-career">
+        <div class="panel-header">
+          <h2 class="panel-title">🧭 AI Career Counselor</h2>
+          <p class="panel-sub">Tell me about yourself — I'll map out the best career path for you.</p>
+        </div>
+        <div class="card form-card">
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Your Name</label>
+              <input type="text" id="cc-name" placeholder="e.g. Priya Sharma" />
+            </div>
+            <div class="form-group">
+              <label>Education Level</label>
+              <select id="cc-edu">
+                <option value="">Select level</option>
+                <option>Class 10 (Secondary)</option>
+                <option>Class 12 (Senior Secondary)</option>
+                <option>Undergraduate (1st/2nd year)</option>
+                <option>Undergraduate (Final year)</option>
+                <option>Graduate / Fresher</option>
+                <option>Diploma holder</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Your Interests (comma-separated)</label>
+              <input type="text" id="cc-interests" placeholder="e.g. coding, design, problem solving" />
+            </div>
+            <div class="form-group">
+              <label>Current Skills (comma-separated)</label>
+              <input type="text" id="cc-skills" placeholder="e.g. Python basics, MS Excel, English" />
+            </div>
+            <div class="form-group">
+              <label>Career Goal</label>
+              <input type="text" id="cc-goal" placeholder="e.g. Software Engineer, Data Analyst, Teacher" />
+            </div>
+            <div class="form-group">
+              <label>Location / Background</label>
+              <select id="cc-location">
+                <option value="">Select</option>
+                <option>Rural area / Village</option>
+                <option>Tier-3 city / Town</option>
+                <option>Tier-2 city</option>
+                <option>Metro city</option>
+              </select>
+            </div>
+          </div>
+          <button class="btn-primary btn-full" onclick="generateCareerPath()">
+            <span>Generate My Career Path</span>
+          </button>
+        </div>
+        <div id="career-result" class="result-area hidden"></div>
+      </section>
+
+      <!-- ─── TAB: Skill Gap Analyzer ─── -->
+      <section class="tab-panel" id="tab-skills">
+        <div class="panel-header">
+          <h2 class="panel-title">📊 Skill Gap Analyzer</h2>
+          <p class="panel-sub">Compare what you know now with what your dream role actually requires.</p>
+        </div>
+        <div class="card form-card">
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Target Role / Job Title</label>
+              <input type="text" id="sg-role" placeholder="e.g. Full Stack Developer, Data Scientist" />
+            </div>
+            <div class="form-group">
+              <label>Your Current Skills (comma-separated)</label>
+              <input type="text" id="sg-current" placeholder="e.g. HTML, CSS, basic Python" />
+            </div>
+          </div>
+          <button class="btn-primary btn-full" onclick="analyzeSkillGap()">
+            <span>Analyze My Skill Gap</span>
+          </button>
+        </div>
+        <div id="skills-result" class="result-area hidden"></div>
+      </section>
+
+      <!-- ─── TAB: Learning Roadmap ─── -->
+      <section class="tab-panel" id="tab-roadmap">
+        <div class="panel-header">
+          <h2 class="panel-title">🗺️ Personalized Learning Roadmap</h2>
+          <p class="panel-sub">Get a structured, step-by-step plan to reach your goal — from 30 days to 1 year.</p>
+        </div>
+        <div class="card form-card">
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Your Goal / Target Role</label>
+              <input type="text" id="rm-goal" placeholder="e.g. Backend Developer at a startup" />
+            </div>
+            <div class="form-group">
+              <label>Current Skill Level</label>
+              <select id="rm-level">
+                <option value="">Select</option>
+                <option>Complete Beginner</option>
+                <option>Some Basics Known</option>
+                <option>Intermediate</option>
+                <option>Advanced Learner</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Daily Time Available</label>
+              <select id="rm-time">
+                <option value="">Select</option>
+                <option>1-2 hours/day</option>
+                <option>2-4 hours/day</option>
+                <option>4-6 hours/day</option>
+                <option>Full time (6+ hrs)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Roadmap Duration</label>
+              <select id="rm-duration">
+                <option value="30">30-Day Sprint</option>
+                <option value="90">90-Day Plan</option>
+                <option value="365">1-Year Roadmap</option>
+              </select>
+            </div>
+          </div>
+          <div class="btn-row">
+            <button class="btn-primary" onclick="generateRoadmap()">
+              <span>Generate Roadmap</span>
+            </button>
+            <button class="btn-secondary" id="downloadPdfBtn" onclick="downloadRoadmapPDF()" style="display:none">
+              ⬇ Download PDF
+            </button>
+          </div>
+        </div>
+        <div id="roadmap-result" class="result-area hidden"></div>
+      </section>
+
+      <!-- ─── TAB: Project Recommender ─── -->
+      <section class="tab-panel" id="tab-projects">
+        <div class="panel-header">
+          <h2 class="panel-title">💡 AI Project Recommender</h2>
+          <p class="panel-sub">Build real projects to prove your skills to employers — not just certificates.</p>
+        </div>
+        <div class="card form-card">
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Your Field / Domain</label>
+              <input type="text" id="pr-field" placeholder="e.g. Web Development, Data Science, Android" />
+            </div>
+            <div class="form-group">
+              <label>Skill Level</label>
+              <select id="pr-level">
+                <option value="">Select</option>
+                <option>Beginner</option>
+                <option>Intermediate</option>
+                <option>Advanced</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Technologies You Know</label>
+              <input type="text" id="pr-tech" placeholder="e.g. Python, HTML/CSS, React" />
+            </div>
+          </div>
+          <button class="btn-primary btn-full" onclick="recommendProjects()">
+            <span>Recommend Projects</span>
+          </button>
+        </div>
+        <div id="projects-result" class="result-area hidden"></div>
+      </section>
+
+      <!-- ─── TAB: Resume Reviewer ─── -->
+      <section class="tab-panel" id="tab-resume">
+        <div class="panel-header">
+          <h2 class="panel-title">📄 AI Resume Reviewer</h2>
+          <p class="panel-sub">Paste your resume and get honest, constructive feedback instantly.</p>
+        </div>
+        <div class="card form-card">
+          <div class="form-group">
+            <label>Paste Your Resume Text</label>
+            <textarea id="resume-text" rows="10" placeholder="Paste your full resume here — name, education, experience, skills, projects..."></textarea>
+          </div>
+          <div class="form-group">
+            <label>Target Job Role (optional)</label>
+            <input type="text" id="resume-role" placeholder="e.g. Frontend Developer, Data Analyst" />
+          </div>
+          <button class="btn-primary btn-full" onclick="reviewResume()">
+            <span>Review My Resume</span>
+          </button>
+        </div>
+        <div id="resume-result" class="result-area hidden"></div>
+      </section>
+
+      <!-- ─── TAB: Interview Coach ─── -->
+      <section class="tab-panel" id="tab-interview">
+        <div class="panel-header">
+          <h2 class="panel-title">🎤 AI Interview Coach</h2>
+          <p class="panel-sub">Practice with real interview questions and model answers for your role.</p>
+        </div>
+        <div class="card form-card">
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Job Role / Position</label>
+              <input type="text" id="iv-role" placeholder="e.g. Junior Python Developer" />
+            </div>
+            <div class="form-group">
+              <label>Interview Type</label>
+              <select id="iv-type">
+                <option value="">Select</option>
+                <option>Technical Round</option>
+                <option>HR / Behavioral Round</option>
+                <option>Both Technical + HR</option>
+                <option>Aptitude / Reasoning</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Experience Level</label>
+              <select id="iv-exp">
+                <option value="">Select</option>
+                <option>Fresher / No Experience</option>
+                <option>0-1 Years</option>
+                <option>1-3 Years</option>
+              </select>
+            </div>
+          </div>
+          <button class="btn-primary btn-full" onclick="generateInterview()">
+            <span>Generate Interview Questions & Answers</span>
+          </button>
+        </div>
+        <div id="interview-result" class="result-area hidden"></div>
+      </section>
+
+      <!-- ─── TAB: Scholarship Finder ─── -->
+      <section class="tab-panel" id="tab-scholarships">
+        <div class="panel-header">
+          <h2 class="panel-title">🎓 Scholarship Finder</h2>
+          <p class="panel-sub">Discover scholarships you're actually eligible for — from government and private sources.</p>
+        </div>
+        <div class="card form-card">
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Education Level</label>
+              <select id="sc-edu">
+                <option value="">Select</option>
+                <option>Class 10 student</option>
+                <option>Class 12 student</option>
+                <option>Undergraduate student</option>
+                <option>Postgraduate student</option>
+                <option>Diploma / ITI</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Category</label>
+              <select id="sc-category">
+                <option value="">Select</option>
+                <option>General</option>
+                <option>OBC</option>
+                <option>SC</option>
+                <option>ST</option>
+                <option>EWS (Economically Weaker Section)</option>
+                <option>Minority</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>State / Location</label>
+              <input type="text" id="sc-state" placeholder="e.g. Madhya Pradesh, Bihar, Rajasthan" />
+            </div>
+            <div class="form-group">
+              <label>Family Annual Income (approx.)</label>
+              <select id="sc-income">
+                <option value="">Select</option>
+                <option>Below ₹1 lakh</option>
+                <option>₹1–2.5 lakh</option>
+                <option>₹2.5–5 lakh</option>
+                <option>₹5–8 lakh</option>
+                <option>Above ₹8 lakh</option>
+              </select>
+            </div>
+          </div>
+          <button class="btn-primary btn-full" onclick="findScholarships()">
+            <span>Find My Scholarships</span>
+          </button>
+        </div>
+        <div id="scholarships-result" class="result-area hidden"></div>
+      </section>
+
+      <!-- ─── TAB: Dashboard ─── -->
+      <section class="tab-panel" id="tab-dashboard">
+        <div class="panel-header">
+          <h2 class="panel-title">📈 My Progress Dashboard</h2>
+          <p class="panel-sub">Track everything you've completed and celebrate every milestone.</p>
+        </div>
+
+        <div class="dashboard-grid">
+          <!-- Stats -->
+          <div class="dash-stat-row">
+            <div class="dash-stat card">
+              <div class="dash-stat-icon">🔥</div>
+              <div class="dash-stat-val" id="ds-streak">0</div>
+              <div class="dash-stat-lbl">Day Streak</div>
+            </div>
+            <div class="dash-stat card">
+              <div class="dash-stat-icon">✅</div>
+              <div class="dash-stat-val" id="ds-skills">0</div>
+              <div class="dash-stat-lbl">Skills Completed</div>
+            </div>
+            <div class="dash-stat card">
+              <div class="dash-stat-icon">🤖</div>
+              <div class="dash-stat-val" id="ds-queries">0</div>
+              <div class="dash-stat-lbl">AI Sessions</div>
+            </div>
+            <div class="dash-stat card">
+              <div class="dash-stat-icon">📋</div>
+              <div class="dash-stat-val" id="ds-roadmap">0%</div>
+              <div class="dash-stat-lbl">Roadmap Done</div>
+            </div>
+          </div>
+
+          <!-- Skills tracker -->
+          <div class="card dash-skills-card">
+            <h3 class="card-title">Skills Tracker</h3>
+            <div class="skills-input-row">
+              <input type="text" id="skill-add-input" placeholder="Add a skill you've learned..." />
+              <button class="btn-primary btn-sm" onclick="addSkill()">+ Add</button>
+            </div>
+            <div id="skills-list" class="skills-list">
+              <div class="skills-empty">No skills tracked yet. Add one above!</div>
+            </div>
+          </div>
+
+          <!-- Goals tracker -->
+          <div class="card dash-goals-card">
+            <h3 class="card-title">My Goals</h3>
+            <div class="skills-input-row">
+              <input type="text" id="goal-add-input" placeholder="Add a weekly goal..." />
+              <button class="btn-primary btn-sm" onclick="addGoal()">+ Add</button>
+            </div>
+            <div id="goals-list" class="goals-list">
+              <div class="skills-empty">No goals added yet.</div>
+            </div>
+          </div>
+
+          <!-- Recent AI sessions -->
+          <div class="card dash-history-card">
+            <h3 class="card-title">Recent AI Sessions</h3>
+            <div id="history-list" class="history-list">
+              <div class="skills-empty">No sessions yet. Use any AI tool to get started!</div>
+            </div>
+          </div>
+
+          <!-- Notes -->
+          <div class="card dash-notes-card">
+            <h3 class="card-title">My Notes</h3>
+            <textarea id="my-notes" rows="5" placeholder="Write your thoughts, plans, or anything you want to remember..." oninput="saveNotes()"></textarea>
+          </div>
+        </div>
+
+        <div class="dash-actions">
+          <button class="btn-secondary" onclick="clearAllProgress()">🗑 Clear All Progress</button>
+          <button class="btn-secondary" onclick="exportProgress()">📤 Export Progress</button>
+        </div>
+      </section>
+
+      <!-- ─── TAB: Search History ─── -->
+      <section class="tab-panel" id="tab-history">
+        <div class="panel-header">
+          <h2 class="panel-title">🕐 Search History</h2>
+          <p class="panel-sub">Every AI query you've made — tap any result to view it again.</p>
+        </div>
+        <div class="sh-toolbar">
+          <span class="sh-count" id="sh-count">0 saved searches</span>
+          <button class="btn-secondary btn-sm sh-clear-all" onclick="clearAllSearchHistory()">🗑 Clear All</button>
+        </div>
+        <div id="sh-empty" class="sh-empty">
+          <div class="sh-empty-icon">🔍</div>
+          <div class="sh-empty-title">No search history yet</div>
+          <div class="sh-empty-sub">Use any AI tool and your queries will appear here automatically.</div>
+        </div>
+        <div id="sh-list" class="sh-list"></div>
+      </section>
+
+    </main>
+
+    <!-- Loading overlay -->
+    <div id="loading-overlay" class="loading-overlay hidden">
+      <div class="loading-card">
+        <!-- Spinner ring -->
+        <div class="sb-spinner">
+          <svg viewBox="0 0 52 52" class="sb-spinner-svg">
+            <circle class="sb-spinner-track" cx="26" cy="26" r="22" fill="none" stroke-width="4"/>
+            <circle class="sb-spinner-arc"   cx="26" cy="26" r="22" fill="none" stroke-width="4" stroke-dasharray="138" stroke-dashoffset="100"/>
+          </svg>
+          <div class="sb-spinner-icon" id="loading-icon">🤖</div>
+        </div>
+        <!-- Primary message -->
+        <div class="loading-text" id="loading-text">Starting…</div>
+        <!-- Animated progress steps -->
+        <div class="loading-steps" id="loading-steps">
+          <div class="loading-step active" id="lstep-0">⚙️ Connecting to AI…</div>
+          <div class="loading-step" id="lstep-1">🧠 Analyzing your profile…</div>
+          <div class="loading-step" id="lstep-2">✍️ Generating response…</div>
+          <div class="loading-step" id="lstep-3">✅ Almost ready…</div>
+        </div>
+        <!-- Progress bar -->
+        <div class="loading-progress-track">
+          <div class="loading-progress-bar" id="loading-bar"></div>
+        </div>
+        <div class="loading-sub">SkillBridge AI is personalizing your response</div>
+      </div>
+    </div>
+
+    <!-- Skeleton loading card (shown inside result area while loading) -->
+    <template id="skeleton-template">
+      <div class="skeleton-card">
+        <div class="skeleton-line w80"></div>
+        <div class="skeleton-line w60"></div>
+        <div class="skeleton-line w90"></div>
+        <div class="skeleton-line w50"></div>
+        <div class="skeleton-line w75"></div>
+        <div class="skeleton-line w65"></div>
+      </div>
+    </template>
+
+    <!-- Toast notification -->
+    <div id="toast" class="toast hidden"></div>
+
+  </div><!-- /app -->
+
+  <script src="script.js"></script>
+</body>
+</html>
