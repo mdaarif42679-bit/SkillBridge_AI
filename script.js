@@ -7,7 +7,7 @@
 // ══════════════════════════════════════════════════
 // CONFIG — replace with your Gemini API key
 // ══════════════════════════════════════════════════
-const GEMINI_API_KEY = "YOUR_API_KEY"; // 🔑 Replace this
+const GEMINI_API_KEY = "AQ.Ab8RN6LHT0IMGkAEsyDBZUMFDzYdsgx0b4QZlq0hvzqU4E4VZg"; // 🔑 Replace this
 const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`;
 const GEMINI_FLASH_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`;
 
